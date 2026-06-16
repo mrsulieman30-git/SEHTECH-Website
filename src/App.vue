@@ -43,6 +43,7 @@ import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import { ref, onMounted, computed, watch, nextTick, h, onUnmounted, provide } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import { updateMetaTags } from './router';
 
 // ─── Custom Medical SVG Icon Components ────────────────────────────
 // These provide domain-specific icons not available in heroicons
@@ -223,6 +224,7 @@ const isRtl = computed(() => currentLang.value === 'AR');
 
 watch(currentLang, (val) => {
     localStorage.setItem('sehtech_lang', val);
+    updateMetaTags(route, val);
 });
 
 // ─── Scroll-Reveal Intersection Observer ───────────────────────────
@@ -324,22 +326,22 @@ const translations = {
                 { title: 'Offline Resilience', text: 'Progressive Web App (PWA) architecture designed to function in low-connectivity environments.', icon: SignalIcon }
             ],
             modules: [
-                { name: 'Patient Administration', desc: 'EMR, visit history, insurance management, and patient status tracking.', icon: IdentificationIcon },
-                { name: 'OPD & Consultations', desc: 'Outpatient queuing, vital signs, consultation notes, and history.', icon: ChatBubbleBottomCenterTextIcon },
-                { name: 'Laboratory Integration', desc: 'HL7/FHIR ready. Queue handling, bulk result entry, and analyzer mapping.', icon: BeakerIcon },
-                { name: 'Radiology & Imaging', desc: 'Digital imaging requests, PACS integration, and radiologist reporting.', icon: RadiologyIcon },
-                { name: 'IPD & Nursing', desc: 'Admission workflows, bed allocation, nursing notes, and medication administration.', icon: NursingIcon },
-                { name: 'Pharmacy Management', desc: 'Inventory tracking, prescription fulfillment, and drug interaction alerts.', icon: PharmacyIcon },
-                { name: 'Surgery & OT', desc: 'OR scheduling, anesthesia records, and post-operative recovery tracking.', icon: SurgeryIcon },
-                { name: 'Inventory & Stock', desc: 'Consumables tracking, automated reordering, and stockout alerts.', icon: ArchiveBoxIcon },
-                { name: 'Billing & Finance', desc: 'Automated invoice generation, payment recording, and financial dashboards.', icon: CreditCardIcon },
-                { name: 'Reports & Analytics', desc: 'Clinical KPIs, financial reporting, and MOH-specific data exports.', icon: PresentationChartLineIcon },
-                { name: 'Emergency & Triage', desc: 'ER management, triage classification (ESI), critical care tracking, and trauma documentation.', icon: BoltIcon },
-                { name: 'Blood Bank', desc: 'Donor registration, blood typing, cross-matching, component separation, and real-time inventory.', icon: BloodBankIcon },
-                { name: 'Human Resources', desc: 'Staff scheduling, attendance tracking, payroll management, and credential verification.', icon: UserGroupIcon },
-                { name: 'Dental Department', desc: 'Odontogram charting, treatment planning, procedure tracking, and imaging integration.', icon: ToothIcon },
-                { name: 'Maternity & Obstetrics', desc: 'Antenatal care, delivery tracking, neonatal monitoring, and family planning records.', icon: MaternityIcon },
-                { name: 'Mortuary & Forensics', desc: 'Deceased patient management, autopsy scheduling, documentation, and chain-of-custody tracking.', icon: MortuaryIcon },
+                { name: 'Patient Administration', slug: 'patient-administration', desc: 'EMR, visit history, insurance management, and patient status tracking.', icon: IdentificationIcon },
+                { name: 'OPD & Consultations', slug: 'opd-consultations', desc: 'Outpatient queuing, vital signs, consultation notes, and history.', icon: ChatBubbleBottomCenterTextIcon },
+                { name: 'Laboratory Integration', slug: 'laboratory-integration', desc: 'HL7/FHIR ready. Queue handling, bulk result entry, and analyzer mapping.', icon: BeakerIcon },
+                { name: 'Radiology & Imaging', slug: 'radiology-imaging', desc: 'Digital imaging requests, PACS integration, and radiologist reporting.', icon: RadiologyIcon },
+                { name: 'IPD & Nursing', slug: 'ipd-nursing', desc: 'Admission workflows, bed allocation, nursing notes, and medication administration.', icon: NursingIcon },
+                { name: 'Pharmacy Management', slug: 'pharmacy-management', desc: 'Inventory tracking, prescription fulfillment, and drug interaction alerts.', icon: PharmacyIcon },
+                { name: 'Surgery & OT', slug: 'surgery-ot', desc: 'OR scheduling, anesthesia records, and post-operative recovery tracking.', icon: SurgeryIcon },
+                { name: 'Inventory & Stock', slug: 'inventory-stock', desc: 'Consumables tracking, automated reordering, and stockout alerts.', icon: ArchiveBoxIcon },
+                { name: 'Billing & Finance', slug: 'billing-finance', desc: 'Automated invoice generation, payment recording, and financial dashboards.', icon: CreditCardIcon },
+                { name: 'Reports & Analytics', slug: 'reports-analytics', desc: 'Clinical KPIs, financial reporting, and MOH-specific data exports.', icon: PresentationChartLineIcon },
+                { name: 'Emergency & Triage', slug: 'emergency-triage', desc: 'ER management, triage classification (ESI), critical care tracking, and trauma documentation.', icon: BoltIcon },
+                { name: 'Blood Bank', slug: 'blood-bank', desc: 'Donor registration, blood typing, cross-matching, component separation, and real-time inventory.', icon: BloodBankIcon },
+                { name: 'Human Resources', slug: 'human-resources', desc: 'Staff scheduling, attendance tracking, payroll management, and credential verification.', icon: UserGroupIcon },
+                { name: 'Dental Department', slug: 'dental-department', desc: 'Odontogram charting, treatment planning, procedure tracking, and imaging integration.', icon: ToothIcon },
+                { name: 'Maternity & Obstetrics', slug: 'maternity-obstetrics', desc: 'Antenatal care, delivery tracking, neonatal monitoring, and family planning records.', icon: MaternityIcon },
+                { name: 'Mortuary & Forensics', slug: 'mortuary-forensics', desc: 'Deceased patient management, autopsy scheduling, documentation, and chain-of-custody tracking.', icon: MortuaryIcon },
             ]
         },
         faq: {
@@ -419,22 +421,22 @@ const translations = {
                 { title: 'العمل دون اتصال', text: 'بنية تطبيق ويب تقدمي (PWA) مصممة للعمل في بيئات الاتصال الضعيفة.', icon: SignalIcon }
             ],
             modules: [
-                { name: 'إدارة المرضى', desc: 'السجلات الطبية الإلكترونية، تاريخ الزيارات، إدارة التأمين، وتتبع حالة المريض.', icon: IdentificationIcon },
-                { name: 'العيادات الخارجية', desc: 'قوائم انتظار المرضى، المؤشرات الحيوية، ملاحظات الاستشارة، والتاريخ الطبي.', icon: ChatBubbleBottomCenterTextIcon },
-                { name: 'تكامل المختبرات', desc: 'جاهز لـ HL7/FHIR. معالجة قوائم الانتظار، إدخال النتائج بالجملة، وربط أجهزة التحليل.', icon: BeakerIcon },
-                { name: 'الأشعة والتصوير', desc: 'طلبات التصوير الرقمي، تكامل PACS، وتقارير أخصائيي الأشعة.', icon: RadiologyIcon },
-                { name: 'الأقسام الداخلية والتمريض', desc: 'سير عمل الدخول، تخصيص الأسرة، ملاحظات التمريض، وإدارة الأدوية.', icon: NursingIcon },
-                { name: 'إدارة الصيدلية', desc: 'تتبع المخزون، صرف الوصفات الطبية، وتنبيهات التفاعلات الدوائية.', icon: PharmacyIcon },
-                { name: 'الجراحة وغرف العمليات', desc: 'جدولة غرف العمليات، سجلات التخدير، وتتبع التعافي بعد العملية.', icon: SurgeryIcon },
-                { name: 'المخزون والمستودعات', desc: 'تتبع المستهلكات، إعادة الطلب التلقائي، وتنبيهات نفاد المخزون.', icon: ArchiveBoxIcon },
-                { name: 'الفواتير والتمويل', desc: 'إنشاء فواتير آلي، تسجيل المدفوعات، ولوحات تحكم مالية شاملة.', icon: CreditCardIcon },
-                { name: 'التقارير والتحليلات', desc: 'مؤشرات الأداء السريرية، التقارير المالية، وتصدير البيانات لوزارة الصحة.', icon: PresentationChartLineIcon },
-                { name: 'الطوارئ والفرز', desc: 'إدارة غرفة الطوارئ، تصنيف حالات الفرز، تتبع الرعاية الحرجة، وتوثيق الصدمات.', icon: BoltIcon },
-                { name: 'بنك الدم', desc: 'تسجيل المتبرعين، فصيلة الدم، اختبارات التوافق، فصل المكونات، والمخزون الحي.', icon: BloodBankIcon },
-                { name: 'الموارد البشرية', desc: 'جدولة الموظفين، تتبع الحضور، إدارة الرواتب، والتحقق من الشهادات.', icon: UserGroupIcon },
-                { name: 'قسم الأسنان', desc: 'رسم خريطة الأسنان، تخطيط العلاج، تتبع الإجراءات، وتكامل التصوير.', icon: ToothIcon },
-                { name: 'الولادة والتوليد', desc: 'رعاية ما قبل الولادة، تتبع الولادة، مراقبة حديثي الولادة، وسجلات تنظيم الأسرة.', icon: MaternityIcon },
-                { name: 'المشرحة والطب الشرعي', desc: 'إدارة المتوفين، جدولة التشريح، التوثيق، وتتبع سلسلة الحفظ.', icon: MortuaryIcon },
+                { name: 'إدارة المرضى', slug: 'patient-administration', desc: 'السجلات الطبية الإلكترونية، تاريخ الزيارات، إدارة التأمين، وتتبع حالة المريض.', icon: IdentificationIcon },
+                { name: 'العيادات الخارجية', slug: 'opd-consultations', desc: 'قوائم انتظار المرضى، المؤشرات الحيوية، ملاحظات الاستشارة، والتاريخ الطبي.', icon: ChatBubbleBottomCenterTextIcon },
+                { name: 'تكامل المختبرات', slug: 'laboratory-integration', desc: 'جاهز لـ HL7/FHIR. معالجة قوائم الانتظار، إدخال النتائج بالجملة، وربط أجهزة التحليل.', icon: BeakerIcon },
+                { name: 'الأشعة والتصوير', slug: 'radiology-imaging', desc: 'طلبات التصوير الرقمي، تكامل PACS، وتقارير أخصائيي الأشعة.', icon: RadiologyIcon },
+                { name: 'الأقسام الداخلية والتمريض', slug: 'ipd-nursing', desc: 'سير عمل الدخول، تخصيص الأسرة، ملاحظات التمريض، وإدارة الأدوية.', icon: NursingIcon },
+                { name: 'إدارة الصيدلية', slug: 'pharmacy-management', desc: 'تتبع المخزون، صرف الوصفات الطبية، وتنبيهات التفاعلات الدوائية.', icon: PharmacyIcon },
+                { name: 'الجراحة وغرف العمليات', slug: 'surgery-ot', desc: 'جدولة غرف العمليات، سجلات التخدير، وتتبع التعافي بعد العملية.', icon: SurgeryIcon },
+                { name: 'المخزون والمستودعات', slug: 'inventory-stock', desc: 'تتبع المستهلكات، إعادة الطلب التلقائي، وتنبيهات نفاد المخزون.', icon: ArchiveBoxIcon },
+                { name: 'الفواتير والتمويل', slug: 'billing-finance', desc: 'إنشاء فواتير آلي، تسجيل المدفوعات، ولوحات تحكم مالية شاملة.', icon: CreditCardIcon },
+                { name: 'التقارير والتحليلات', slug: 'reports-analytics', desc: 'مؤشرات الأداء السريرية، التقارير المالية، وتصدير البيانات لوزارة الصحة.', icon: PresentationChartLineIcon },
+                { name: 'الطوارئ والفرز', slug: 'emergency-triage', desc: 'إدارة غرفة الطوارئ، تصنيف حالات الفرز، تتبع الرعاية الحرجة، وتوثيق الصدمات.', icon: BoltIcon },
+                { name: 'بنك الدم', slug: 'blood-bank', desc: 'تسجيل المتبرعين، فصيلة الدم، اختبارات التوافق، فصل المكونات، والمخزون الحي.', icon: BloodBankIcon },
+                { name: 'الموارد البشرية', slug: 'human-resources', desc: 'جدولة الموظفين، تتبع الحضور، إدارة الرواتب، والتحقق من الشهادات.', icon: UserGroupIcon },
+                { name: 'قسم الأسنان', slug: 'dental-department', desc: 'رسم خريطة الأسنان، تخطيط العلاج، تتبع الإجراءات، وتكامل التصوير.', icon: ToothIcon },
+                { name: 'الولادة والتوليد', slug: 'maternity-obstetrics', desc: 'رعاية ما قبل الولادة، تتبع الولادة، مراقبة حديثي الولادة، وسجلات تنظيم الأسرة.', icon: MaternityIcon },
+                { name: 'المشرحة والطب الشرعي', slug: 'mortuary-forensics', desc: 'إدارة المتوفين، جدولة التشريح، التوثيق، وتتبع سلسلة الحفظ.', icon: MortuaryIcon },
             ]
         },
         faq: {
@@ -514,22 +516,22 @@ const translations = {
                 { title: 'Shaqada Offline-ka', text: 'Naqshadda Progressive Web App (PWA) oo loogu talagalay inay ku shaqeyso deegaannada leh xiriirka internet ee daciifka ah.', icon: SignalIcon }
             ],
             modules: [
-                { name: 'Maareynta Bukaanka', desc: 'EMR, taariikhda booqashada, maareynta caymiska, iyo dabagalka xaaladda bukaanka.', icon: IdentificationIcon },
-                { name: 'Bukaan-socodka (OPD)', desc: 'Safafka bukaanka, cabiraadda xogta muhiimka ah, iyo qoraallada latashiga.', icon: ChatBubbleBottomCenterTextIcon },
-                { name: 'Isku-xirka Shaybaarka', desc: 'U diyaarsan HL7/FHIR. Maareynta safafka, galinta natiijooyinka badan, iyo isku-xirka analyzer-ka.', icon: BeakerIcon },
-                { name: 'Raadiyolojiga (Radiology)', desc: 'Codsiyada sawir-qaadista, isku-xirka PACs, iyo warbixinnada dhaqtarka.', icon: RadiologyIcon },
-                { name: 'IPD & Kalkaalisada', desc: 'Hannaanka qaabilidda, qoondaynta sariirta, qoraallada kalkaalisada, iyo maareynta daawada.', icon: NursingIcon },
-                { name: 'Maareynta Farmashiyaha', desc: 'Dabagalka alaabta, buuxinta daawada, iyo digniinaha is-dhexgalka daawooyinka.', icon: PharmacyIcon },
-                { name: 'Qaliinka & OT', desc: 'Jadwalka qolka qaliinka, diiwaanka suuxinta, iyo dabagalka soo kabashada.', icon: SurgeryIcon },
-                { name: 'Inventory-ga & Qalabka', desc: 'Dabagalka agabka, dalbashada tooska ah, iyo digniinaha alaab-go\'itaanka.', icon: ArchiveBoxIcon },
-                { name: 'Biillka & Maaliyadda', desc: 'Abuurista qaansheegta ee tooska ah, diiwaangelinta lacag-bixinta, iyo dashboard-yada maaliyadda.', icon: CreditCardIcon },
-                { name: 'Warbixinnada & Analytics', desc: 'KPI-yada caafimaadka, warbixinnada maaliyadda, iyo xog-u-dirista wasaaradda.', icon: PresentationChartLineIcon },
-                { name: 'Degdegga & Kala-saarka', desc: 'Maareynta qolka degdegga, kala-saarka xaaladaha, dabagalka daryeelka muhiimka, iyo diiwaangelinta dhaawacyada.', icon: BoltIcon },
-                { name: 'Bangiga Dhiigga', desc: 'Diiwaangelinta dhiig-bixiyeyaasha, nooca dhiigga, baaritaanka is-waafaqida, kala-soocida qaybaha, iyo inventory-ga tooska ah.', icon: BloodBankIcon },
-                { name: 'Maamulka Shaqaalaha', desc: 'Jadwalka shaqaalaha, dabagalka imaatinka, maareynta mushaharadka, iyo xaqiijinta shahaadooyinka.', icon: UserGroupIcon },
-                { name: 'Qeybta Ilkaha', desc: 'Khariidadda ilkaha, qorshaynta daaweynta, dabagalka hawlgallada, iyo isku-xirka sawir-qaadista.', icon: ToothIcon },
-                { name: 'Umulista & Dhalmada', desc: 'Daryeelka hooyada uurka leh, dabagalka dhalmada, ilaalinta ilmaha dhashay, iyo diiwaannada qorshaynta qoyska.', icon: MaternityIcon },
-                { name: 'Meydka & Baaritaanka', desc: 'Maareynta bukaanka geeriyooday, jadwalka baaritaanka, diiwaangelinta, iyo dabagalka silsiladda xafidaanka.', icon: MortuaryIcon },
+                { name: 'Maareynta Bukaanka', slug: 'patient-administration', desc: 'EMR, taariikhda booqashada, maareynta caymiska, iyo dabagalka xaaladda bukaanka.', icon: IdentificationIcon },
+                { name: 'Bukaan-socodka (OPD)', slug: 'opd-consultations', desc: 'Safafka bukaanka, cabiraadda xogta muhiimka ah, iyo qoraallada latashiga.', icon: ChatBubbleBottomCenterTextIcon },
+                { name: 'Isku-xirka Shaybaarka', slug: 'laboratory-integration', desc: 'U diyaarsan HL7/FHIR. Maareynta safafka, galinta natiijooyinka badan, iyo isku-xirka analyzer-ka.', icon: BeakerIcon },
+                { name: 'Raadiyolojiga (Radiology)', slug: 'radiology-imaging', desc: 'Codsiyada sawir-qaadista, isku-xirka PACs, iyo warbixinnada dhaqtarka.', icon: RadiologyIcon },
+                { name: 'IPD & Kalkaalisada', slug: 'ipd-nursing', desc: 'Hannaanka qaabilidda, qoondaynta sariirta, qoraallada kalkaalisada, iyo maareynta daawada.', icon: NursingIcon },
+                { name: 'Maareynta Farmashiyaha', slug: 'pharmacy-management', desc: 'Dabagalka alaabta, buuxinta daawada, iyo digniinaha is-dhexgalka daawooyinka.', icon: PharmacyIcon },
+                { name: 'Qaliinka & OT', slug: 'surgery-ot', desc: 'Jadwalka qolka qaliinka, diiwaanka suuxinta, iyo dabagalka soo kabashada.', icon: SurgeryIcon },
+                { name: 'Inventory-ga & Qalabka', slug: 'inventory-stock', desc: 'Dabagalka agabka, dalbashada tooska ah, iyo digniinaha alaab-go\'itaanka.', icon: ArchiveBoxIcon },
+                { name: 'Biillka & Maaliyadda', slug: 'billing-finance', desc: 'Abuurista qaansheegta ee tooska ah, diiwaangelinta lacag-bixinta, iyo dashboard-yada maaliyadda.', icon: CreditCardIcon },
+                { name: 'Warbixinnada & Analytics', slug: 'reports-analytics', desc: 'KPI-yada caafimaadka, warbixinnada maaliyadda, iyo xog-u-dirista wasaaradda.', icon: PresentationChartLineIcon },
+                { name: 'Degdegga & Kala-saarka', slug: 'emergency-triage', desc: 'Maareynta qolka degdegga, kala-saarka xaaladaha, dabagalka daryeelka muhiimka, iyo diiwaangelinta dhaawacyada.', icon: BoltIcon },
+                { name: 'Bangiga Dhiigga', slug: 'blood-bank', desc: 'Diiwaangelinta dhiig-bixiyeyaasha, nooca dhiigga, baaritaanka is-waafaqida, kala-soocida qaybaha, iyo inventory-ga tooska ah.', icon: BloodBankIcon },
+                { name: 'Maamulka Shaqaalaha', slug: 'human-resources', desc: 'Jadwalka shaqaalaha, dabagalka imaatinka, maareynta mushaharadka, iyo xaqiijinta shahaadooyinka.', icon: UserGroupIcon },
+                { name: 'Qeybta Ilkaha', slug: 'dental-department', desc: 'Khariidadda ilkaha, qorshaynta daaweynta, dabagalka hawlgallada, iyo isku-xirka sawir-qaadista.', icon: ToothIcon },
+                { name: 'Umulista & Dhalmada', slug: 'maternity-obstetrics', desc: 'Daryeelka hooyada uurka leh, dabagalka dhalmada, ilaalinta ilmaha dhashay, iyo diiwaannada qorshaynta qoyska.', icon: MaternityIcon },
+                { name: 'Meydka & Baaritaanka', slug: 'mortuary-forensics', desc: 'Maareynta bukaanka geeriyooday, jadwalka baaritaanka, diiwaangelinta, iyo dabagalka silsiladda xafidaanka.', icon: MortuaryIcon },
             ]
         },
         faq: {
@@ -790,23 +792,23 @@ Naturally collect this information (don't ask all at once — weave into convers
                             src="/src/assets/logo_icon.png" 
                             alt="SEHTECH Logo" 
                             class="h-12 w-auto transition-all duration-300" 
-                            :class="isScrolled ? '' : 'brightness-0 invert opacity-90'"
+                            :class="(isScrolled || !isHomePage) ? '' : 'brightness-0 invert opacity-90'"
                         >
-                        <span class="font-bold text-3xl tracking-wider" :class="isScrolled ? 'text-[#1A3C5E]' : 'text-white'">
+                        <span class="font-bold text-3xl tracking-wider" :class="(isScrolled || !isHomePage) ? 'text-[#1A3C5E]' : 'text-white'">
                             SEH<span class="text-[#0D7377]">TECH</span>
                         </span>
                     </router-link>
                     
                     <!-- Desktop Nav -->
                     <div class="hidden md:flex items-center" :class="isRtl ? 'space-x-reverse space-x-8' : 'space-x-8'">
-                        <a @click="goToSection('profile')" href="javascript:void(0)" :class="isScrolled ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.profile }}</a>
+                        <a @click="goToSection('profile')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.profile }}</a>
                         
                         <!-- Products Mega Dropdown -->
                         <div class="relative products-dropdown-container">
                             <button 
                                 @click.stop="isProductsOpen = !isProductsOpen"
                                 class="flex items-center gap-1.5 font-medium transition-colors duration-200 hover:text-[#0D7377]"
-                                :class="isScrolled ? 'text-gray-600' : 'text-gray-200'"
+                                :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'"
                             >
                                 {{ t.nav.products }}
                                 <ChevronDownIcon class="w-4 h-4 transition-transform duration-300" :class="{'rotate-180': isProductsOpen}" />
@@ -851,14 +853,14 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </transition>
                         </div>
 
-                        <a @click="goToSection('system')" href="javascript:void(0)" :class="isScrolled ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.system }}</a>
-                        <a @click="goToSection('faq')" href="javascript:void(0)" :class="isScrolled ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.faq }}</a>
+                        <a @click="goToSection('system')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.system }}</a>
+                        <a @click="goToSection('faq')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.faq }}</a>
                         <!-- Lang Switcher Dropdown -->
                         <div class="relative group lang-dropdown-container">
                             <button 
                                 @click="isLangMenuOpen = !isLangMenuOpen"
-                                class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-all border border-white/10"
-                                :class="isScrolled ? 'text-[#1A3C5E] border-gray-200' : 'text-white'"
+                                class="flex items-center gap-2 px-4 py-2 rounded-full transition-all border"
+                                :class="(isScrolled || !isHomePage) ? 'text-[#1A3C5E] border-gray-200 bg-white hover:bg-slate-50' : 'text-white border-white/10 bg-white/10 hover:bg-white/20'"
                             >
                                 <span class="fi w-5 h-4 rounded-sm" :class="activeLangData.flagClass"></span>
                                 <span class="text-sm font-bold">{{ activeLangData.code }}</span>
@@ -1128,8 +1130,12 @@ Naturally collect this information (don't ask all at once — weave into convers
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-start">
-                        <div v-for="(mod, idx) in t.specs.modules" :key="idx" 
-                             class="flex gap-5 group p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-default">
+                        <component 
+                             v-for="(mod, idx) in t.specs.modules" :key="idx" 
+                             :is="mod.slug ? 'router-link' : 'div'"
+                             :to="mod.slug ? `/modules/${mod.slug}` : undefined"
+                             class="flex gap-5 group p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
+                             :class="mod.slug ? 'cursor-pointer' : 'cursor-default'">
                             <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#0D7377]/30 group-hover:scale-110 transition-all duration-300 border border-white/5 group-hover:border-[#0D7377]/30">
                                 <component :is="mod.icon" class="w-7 h-7 text-[#0D7377] group-hover:text-[#25A5A7] transition-colors" />
                             </div>
@@ -1137,7 +1143,7 @@ Naturally collect this information (don't ask all at once — weave into convers
                                 <h4 class="font-bold text-lg mb-1.5 group-hover:text-[#25A5A7] transition-colors">{{ mod.name }}</h4>
                                 <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">{{ mod.desc }}</p>
                             </div>
-                        </div>
+                        </component>
                     </div>
                 </div>
             </div>
