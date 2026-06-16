@@ -55,10 +55,10 @@ const appViewsText = computed(() => {
     <div class="pt-32 pb-16 min-h-screen bg-slate-50" v-if="moduleInfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Back Button -->
-            <button @click="router.push('/')" class="mb-8 flex items-center text-[#1A3C5E] hover:text-[#0D7377] font-semibold transition-colors">
+            <router-link to="/" class="mb-8 inline-flex items-center text-[#1A3C5E] hover:text-[#0D7377] font-semibold transition-colors">
                 <ArrowLeftIcon class="w-5 h-5 mr-2" :class="{'rotate-180': lang === 'AR'}" />
                 {{ goBackText }}
-            </button>
+            </router-link>
 
             <!-- Hero Section -->
             <div class="bg-gradient-to-br from-[#1A3C5E] to-[#0D7377] rounded-3xl overflow-hidden shadow-2xl mb-16 relative">
@@ -116,6 +116,6 @@ const appViewsText = computed(() => {
     </div>
     <div v-else class="pt-40 pb-16 min-h-screen flex items-center justify-center flex-col">
         <h1 class="text-3xl font-bold text-[#1A3C5E] mb-4">Module not found</h1>
-        <button @click="router.push('/')" class="text-[#0D7377] font-semibold underline">Return Home</button>
+        <router-link to="/" class="text-[#0D7377] font-semibold underline">Return Home</router-link>
     </div>
 </template>

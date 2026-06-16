@@ -262,7 +262,7 @@ onUnmounted(() => {
 });
 
 // Re-observe elements when route changes (for returning to home)
-watch(route, () => {
+watch(() => route.path, () => {
     if (isHomePage.value) {
         setTimeout(() => {
             document.querySelectorAll('.reveal-on-scroll').forEach(el => {
