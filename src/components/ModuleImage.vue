@@ -22,9 +22,9 @@ const props = defineProps({
 
 // Import all png, jpg, jpeg images in the modules folder
 // using eager to avoid async component wrapping for simple images
-const pngImages = import.meta.glob('/src/assets/modules/*.png', { eager: true, as: 'url' });
-const jpgImages = import.meta.glob('/src/assets/modules/*.jpg', { eager: true, as: 'url' });
-const jpegImages = import.meta.glob('/src/assets/modules/*.jpeg', { eager: true, as: 'url' });
+const pngImages = import.meta.glob('/src/assets/modules/*.png', { eager: true, query: '?url', import: 'default' });
+const jpgImages = import.meta.glob('/src/assets/modules/*.jpg', { eager: true, query: '?url', import: 'default' });
+const jpegImages = import.meta.glob('/src/assets/modules/*.jpeg', { eager: true, query: '?url', import: 'default' });
 
 const allImages = { ...pngImages, ...jpgImages, ...jpegImages };
 
