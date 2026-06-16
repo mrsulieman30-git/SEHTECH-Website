@@ -173,7 +173,7 @@ const products = computed(() => [
     { name: t.value.products?.hospital || 'Hospital Management System', slug: 'hospital-management', color: '#0D7377', icon: BuildingOffice2Icon },
     { name: t.value.products?.clinic || 'Clinic Management System', slug: 'clinic-management', color: '#2563EB', icon: HeartIcon },
     { name: t.value.products?.radiology || 'Radiology Management System', slug: 'radiology-management', color: '#7C3AED', icon: ViewfinderCircleIcon },
-    { name: t.value.products?.dental || 'Dental Clinic Management System', slug: 'dental-management', color: '#0891B2', icon: ToothIcon },
+    { name: t.value.products?.dental || 'Dental Clinic Management System', slug: 'dental-management', color: '#0891B2', icon: ToothIcon, comingSoon: true },
     { name: t.value.products?.laboratory || 'Laboratory Management System', slug: 'laboratory-management', color: '#059669', icon: BeakerIcon },
     { name: t.value.products?.pharmacy || 'Pharmacy Management System', slug: 'pharmacy-management', color: '#DC2626', icon: PillIcon },
     { name: t.value.products?.inventory || 'Inventory Management System', slug: 'inventory-management', color: '#D97706', icon: CubeIcon },
@@ -339,9 +339,9 @@ const translations = {
                 { name: 'Emergency & Triage', slug: 'emergency-triage', desc: 'ER management, triage classification (ESI), critical care tracking, and trauma documentation.', icon: BoltIcon },
                 { name: 'Blood Bank', slug: 'blood-bank', desc: 'Donor registration, blood typing, cross-matching, component separation, and real-time inventory.', icon: BloodBankIcon },
                 { name: 'Human Resources', slug: 'human-resources', desc: 'Staff scheduling, attendance tracking, payroll management, and credential verification.', icon: UserGroupIcon },
-                { name: 'Dental Department', slug: 'dental-department', desc: 'Odontogram charting, treatment planning, procedure tracking, and imaging integration.', icon: ToothIcon },
-                { name: 'Maternity & Obstetrics', slug: 'maternity-obstetrics', desc: 'Antenatal care, delivery tracking, neonatal monitoring, and family planning records.', icon: MaternityIcon },
-                { name: 'Mortuary & Forensics', slug: 'mortuary-forensics', desc: 'Deceased patient management, autopsy scheduling, documentation, and chain-of-custody tracking.', icon: MortuaryIcon },
+                { name: 'Dental Department', slug: 'dental-department', desc: 'Odontogram charting, treatment planning, procedure tracking, and imaging integration.', icon: ToothIcon, comingSoon: true },
+                { name: 'Maternity & Obstetrics', slug: 'maternity-obstetrics', desc: 'Antenatal care, delivery tracking, neonatal monitoring, and family planning records.', icon: MaternityIcon, comingSoon: true },
+                { name: 'Mortuary & Forensics', slug: 'mortuary-forensics', desc: 'Deceased patient management, autopsy scheduling, documentation, and chain-of-custody tracking.', icon: MortuaryIcon, comingSoon: true },
             ]
         },
         faq: {
@@ -434,9 +434,9 @@ const translations = {
                 { name: 'الطوارئ والفرز', slug: 'emergency-triage', desc: 'إدارة غرفة الطوارئ، تصنيف حالات الفرز، تتبع الرعاية الحرجة، وتوثيق الصدمات.', icon: BoltIcon },
                 { name: 'بنك الدم', slug: 'blood-bank', desc: 'تسجيل المتبرعين، فصيلة الدم، اختبارات التوافق، فصل المكونات، والمخزون الحي.', icon: BloodBankIcon },
                 { name: 'الموارد البشرية', slug: 'human-resources', desc: 'جدولة الموظفين، تتبع الحضور، إدارة الرواتب، والتحقق من الشهادات.', icon: UserGroupIcon },
-                { name: 'قسم الأسنان', slug: 'dental-department', desc: 'رسم خريطة الأسنان، تخطيط العلاج، تتبع الإجراءات، وتكامل التصوير.', icon: ToothIcon },
-                { name: 'الولادة والتوليد', slug: 'maternity-obstetrics', desc: 'رعاية ما قبل الولادة، تتبع الولادة، مراقبة حديثي الولادة، وسجلات تنظيم الأسرة.', icon: MaternityIcon },
-                { name: 'المشرحة والطب الشرعي', slug: 'mortuary-forensics', desc: 'إدارة المتوفين، جدولة التشريح، التوثيق، وتتبع سلسلة الحفظ.', icon: MortuaryIcon },
+                { name: 'قسم الأسنان', slug: 'dental-department', desc: 'رسم خريطة الأسنان، تخطيط العلاج، تتبع الإجراءات، وتكامل التصوير.', icon: ToothIcon, comingSoon: true },
+                { name: 'الولادة والتوليد', slug: 'maternity-obstetrics', desc: 'رعاية ما قبل الولادة، تتبع الولادة، مراقبة حديثي الولادة، وسجلات تنظيم الأسرة.', icon: MaternityIcon, comingSoon: true },
+                { name: 'المشرحة والطب الشرعي', slug: 'mortuary-forensics', desc: 'إدارة المتوفين، جدولة التشريح، التوثيق، وتتبع سلسلة الحفظ.', icon: MortuaryIcon, comingSoon: true },
             ]
         },
         faq: {
@@ -529,9 +529,9 @@ const translations = {
                 { name: 'Degdegga & Kala-saarka', slug: 'emergency-triage', desc: 'Maareynta qolka degdegga, kala-saarka xaaladaha, dabagalka daryeelka muhiimka, iyo diiwaangelinta dhaawacyada.', icon: BoltIcon },
                 { name: 'Bangiga Dhiigga', slug: 'blood-bank', desc: 'Diiwaangelinta dhiig-bixiyeyaasha, nooca dhiigga, baaritaanka is-waafaqida, kala-soocida qaybaha, iyo inventory-ga tooska ah.', icon: BloodBankIcon },
                 { name: 'Maamulka Shaqaalaha', slug: 'human-resources', desc: 'Jadwalka shaqaalaha, dabagalka imaatinka, maareynta mushaharadka, iyo xaqiijinta shahaadooyinka.', icon: UserGroupIcon },
-                { name: 'Qeybta Ilkaha', slug: 'dental-department', desc: 'Khariidadda ilkaha, qorshaynta daaweynta, dabagalka hawlgallada, iyo isku-xirka sawir-qaadista.', icon: ToothIcon },
-                { name: 'Umulista & Dhalmada', slug: 'maternity-obstetrics', desc: 'Daryeelka hooyada uurka leh, dabagalka dhalmada, ilaalinta ilmaha dhashay, iyo diiwaannada qorshaynta qoyska.', icon: MaternityIcon },
-                { name: 'Meydka & Baaritaanka', slug: 'mortuary-forensics', desc: 'Maareynta bukaanka geeriyooday, jadwalka baaritaanka, diiwaangelinta, iyo dabagalka silsiladda xafidaanka.', icon: MortuaryIcon },
+                { name: 'Qeybta Ilkaha', slug: 'dental-department', desc: 'Khariidadda ilkaha, qorshaynta daaweynta, dabagalka hawlgallada, iyo isku-xirka sawir-qaadista.', icon: ToothIcon, comingSoon: true },
+                { name: 'Umulista & Dhalmada', slug: 'maternity-obstetrics', desc: 'Daryeelka hooyada uurka leh, dabagalka dhalmada, ilaalinta ilmaha dhashay, iyo diiwaannada qorshaynta qoyska.', icon: MaternityIcon, comingSoon: true },
+                { name: 'Meydka & Baaritaanka', slug: 'mortuary-forensics', desc: 'Maareynta bukaanka geeriyooday, jadwalka baaritaanka, diiwaangelinta, iyo dabagalka silsiladda xafidaanka.', icon: MortuaryIcon, comingSoon: true },
             ]
         },
         faq: {
@@ -834,13 +834,20 @@ Naturally collect this information (don't ask all at once — weave into convers
                                         <button 
                                             v-for="product in products" 
                                             :key="product.slug"
-                                            @click="navigateToProduct(product.slug)"
-                                            class="flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200 text-start group"
+                                            @click="!product.comingSoon ? navigateToProduct(product.slug) : null"
+                                            :disabled="product.comingSoon"
+                                            class="flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-start group"
+                                            :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 cursor-pointer'"
                                         >
-                                            <span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" :style="`background: ${product.color}12;`"><component :is="product.icon" class="w-5 h-5" :style="`color: ${product.color};`" /></span>
-                                            <div class="min-w-0">
-                                                <p class="text-sm font-semibold text-gray-800 group-hover:text-[#0D7377] transition-colors truncate">{{ product.name }}</p>
-                                                <div class="w-0 group-hover:w-full h-0.5 rounded-full transition-all duration-300 mt-0.5" :style="`background: ${product.color};`"></div>
+                                            <span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform" :class="!product.comingSoon ? 'group-hover:scale-110' : ''" :style="`background: ${product.color}12;`"><component :is="product.icon" class="w-5 h-5" :style="`color: ${product.color};`" /></span>
+                                            <div class="min-w-0 flex-grow">
+                                                <div class="flex items-center gap-1.5 justify-between">
+                                                    <p class="text-sm font-semibold text-gray-800 transition-colors truncate" :class="!product.comingSoon ? 'group-hover:text-[#0D7377]' : ''">{{ product.name }}</p>
+                                                    <span v-if="product.comingSoon" class="text-[8px] uppercase font-extrabold tracking-wider bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded border border-amber-500/30 shrink-0">
+                                                        {{ currentLang === 'AR' ? 'قريباً' : (currentLang === 'SO' ? 'Soon' : 'Soon') }}
+                                                    </span>
+                                                </div>
+                                                <div v-if="!product.comingSoon" class="w-0 group-hover:w-full h-0.5 rounded-full transition-all duration-300 mt-0.5" :style="`background: ${product.color};`"></div>
                                             </div>
                                         </button>
                                     </div>
@@ -946,11 +953,18 @@ Naturally collect this information (don't ask all at once — weave into convers
                                     <button 
                                         v-for="product in products" 
                                         :key="product.slug"
-                                        @click="navigateToProduct(product.slug)"
-                                        class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition text-start"
+                                        @click="!product.comingSoon ? navigateToProduct(product.slug) : null"
+                                        :disabled="product.comingSoon"
+                                        class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition text-start"
+                                        :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 cursor-pointer'"
                                     >
                                         <span class="w-7 h-7 rounded-md flex items-center justify-center shrink-0" :style="`background: ${product.color}12;`"><component :is="product.icon" class="w-4 h-4" :style="`color: ${product.color};`" /></span>
-                                        <span class="text-sm font-medium text-gray-600">{{ product.name }}</span>
+                                        <span class="text-sm font-medium text-gray-600 flex-grow flex items-center justify-between">
+                                            <span>{{ product.name }}</span>
+                                            <span v-if="product.comingSoon" class="text-[8px] uppercase font-extrabold tracking-wider bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded border border-amber-500/30 shrink-0">
+                                                {{ currentLang === 'AR' ? 'قريباً' : (currentLang === 'SO' ? 'Soon' : 'Soon') }}
+                                            </span>
+                                        </span>
                                     </button>
                                 </div>
                             </transition>
@@ -1132,16 +1146,25 @@ Naturally collect this information (don't ask all at once — weave into convers
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-start">
                         <component 
                              v-for="(mod, idx) in t.specs.modules" :key="idx" 
-                             :is="mod.slug ? 'router-link' : 'div'"
-                             :to="mod.slug ? `/modules/${mod.slug}` : undefined"
-                             class="flex gap-5 group p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
-                             :class="mod.slug ? 'cursor-pointer' : 'cursor-default'">
-                            <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#0D7377]/30 group-hover:scale-110 transition-all duration-300 border border-white/5 group-hover:border-[#0D7377]/30">
-                                <component :is="mod.icon" class="w-7 h-7 text-[#0D7377] group-hover:text-[#25A5A7] transition-colors" />
+                             :is="(mod.slug && !mod.comingSoon) ? 'router-link' : 'div'"
+                             :to="(mod.slug && !mod.comingSoon) ? `/modules/${mod.slug}` : undefined"
+                             class="flex gap-5 group p-4 rounded-xl transition-all duration-300"
+                             :class="[
+                                 (mod.slug && !mod.comingSoon) ? 'cursor-pointer hover:bg-white/5' : 'cursor-default',
+                                 mod.comingSoon ? 'opacity-40 select-none' : ''
+                             ]">
+                            <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 border border-white/5"
+                                 :class="!mod.comingSoon ? 'group-hover:bg-[#0D7377]/30 group-hover:scale-110 group-hover:border-[#0D7377]/30' : ''">
+                                <component :is="mod.icon" class="w-7 h-7 text-[#0D7377]" :class="!mod.comingSoon ? 'group-hover:text-[#25A5A7] transition-colors' : ''" />
                             </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1.5 group-hover:text-[#25A5A7] transition-colors">{{ mod.name }}</h4>
-                                <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">{{ mod.desc }}</p>
+                            <div class="flex-grow">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <h4 class="font-bold text-lg" :class="!mod.comingSoon ? 'group-hover:text-[#25A5A7] transition-colors' : ''">{{ mod.name }}</h4>
+                                    <span v-if="mod.comingSoon" class="text-[9px] uppercase font-extrabold tracking-wider bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded border border-amber-500/30 shrink-0">
+                                        {{ currentLang === 'AR' ? 'قريباً' : (currentLang === 'SO' ? 'Dhowaan' : 'Soon') }}
+                                    </span>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed" :class="!mod.comingSoon ? 'group-hover:text-gray-300 transition-colors' : ''">{{ mod.desc }}</p>
                             </div>
                         </component>
                     </div>
