@@ -178,7 +178,7 @@ export const updateMetaTags = (route, lang) => {
     
     // Resolve localized strings
     const routeTitle = (titleObj && typeof titleObj === 'object') ? (titleObj[lang] || titleObj.EN) : (titleObj || 'SEHTECH Solutions');
-    const desc = (descObj && typeof descObj === 'object') ? (descObj[lang] || descObj.EN) : (descObj || 'SEHTECH Solutions provides enterprise offline-first Hospital Management Systems for healthcare facilities in Somalia.');
+    const desc = (descObj && typeof descObj === 'object') ? (descObj[lang] || descObj.EN) : (descObj || 'SEHTECH Solutions provides enterprise offline-first Hospital Management Systems for healthcare facilities in Africa.');
     
     const title = `${routeTitle} | SEHTECH Solutions`;
     const imagePath = route.meta.previewImage || '/preview-images/preview-home.png';

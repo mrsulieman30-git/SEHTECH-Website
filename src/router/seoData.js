@@ -3,18 +3,18 @@ export const seoData = {
     '/': { 
             title: { 
                 EN: 'SEHTECH Solutions', 
-                AR: 'حلول سيحتك', 
+                AR: 'حلول صحتك', 
                 SO: 'SEHTECH Solutions' 
             },
             description: { 
-                EN: 'SEHTECH Solutions provides enterprise offline-first Hospital Management Systems for healthcare facilities in Somalia.',
-                AR: 'توفر SEHTECH Solutions أنظمة إدارة مستشفيات تعمل بدون إنترنت للمرافق الصحية في الصومال.',
-                SO: 'SEHTECH Solutions waxay bixisaa Nidaamyada Maamulka Isbitaalada ee khadka ka baxsan oo loogu talagalay xarumaha caafimaadka ee Soomaaliya.'
+                EN: 'SEHTECH Solutions provides enterprise offline-first Hospital Management Systems for healthcare facilities in Africa.',
+                AR: 'توفر SEHTECH Solutions أنظمة إدارة مستشفيات تعمل بدون إنترنت للمرافق الصحية في أفريقيا.',
+                SO: 'SEHTECH Solutions waxay bixisaa Nidaamyada Maamulka Isbitaalada ee khadka ka baxsan oo loogu talagalay xarumaha caafimaadka ee Afrika.'
             },
             keywords: { 
-                EN: 'SEHTECH Solutions, Healthcare IT Somalia, Hospital Management System, Clinic Software, EMR Bosaso, EHR System, Medical Software Africa, Offline HIS',
-                AR: 'حلول سيحتك, تقنية الرعاية الصحية في الصومال, نظام إدارة المستشفيات, برنامج العيادات, السجلات الطبية الإلكترونية, برامج طبية, نظام طبي بدون إنترنت',
-                SO: 'SEHTECH Solutions, Tignoolajiyada Caafimaadka Soomaaliya, Nidaamka Maamulka Isbitaalada, Software-ka Kiliinikada, Diiwaanka Caafimaadka, Software Caafimaad'
+                EN: 'SEHTECH Solutions, Healthcare IT Africa, Hospital Management System, Clinic Software, EMR Bosaso, EHR System, Medical Software Africa, Offline HIS',
+                AR: 'حلول صحتك, تقنية الرعاية الصحية في أفريقيا, نظام إدارة المستشفيات, برنامج العيادات, السجلات الطبية الإلكترونية, برامج طبية, نظام طبي بدون إنترنت',
+                SO: 'SEHTECH Solutions, Tignoolajiyada Caafimaadka Afrika, Nidaamka Maamulka Isbitaalada, Software-ka Kiliinikada, Diiwaanka Caafimaadka, Software Caafimaad'
             },
             previewImage: '/preview-images/preview-home.png'
         },
@@ -27,7 +27,7 @@ export const seoData = {
                 SO: 'Nidaam maamul isbitaal oo dhamaystiran oo loogu talagalay xarumaha waaweyn. Waxaa ku jira IPD, ER, Raajada, iyo biilasha.'
             },
             keywords: { 
-                EN: 'Hospital Management System, Enterprise HIS, IPD Management, ER Software, Hospital Billing System, Best Hospital Software Somalia',
+                EN: 'Hospital Management System, Enterprise HIS, IPD Management, ER Software, Hospital Billing System, Best Hospital Software Africa',
                 AR: 'نظام إدارة المستشفيات, نظام معلومات المستشفى المؤسسي, إدارة الأقسام الداخلية, برنامج الطوارئ, نظام فواتير المستشفى, أفضل برنامج مستشفيات',
                 SO: 'Nidaamka Maamulka Isbitaalka, Maamulka Bukaan-jiifka, Software-ka Gurmadka Degdegga, Nidaamka Biilasha Isbitaalka, Software-ka Ugu Fiican Isbitaalada'
             },
@@ -87,7 +87,7 @@ export const seoData = {
                 SO: 'Nidaamka LIS oo toos ah ee shaybaarrada casriga ah. Isku-xirka qalabka, dabagalka tijaabada, iyo bixinta natiijooyinka dhijitaalka ah.'
             },
             keywords: { 
-                EN: 'Laboratory Management System, LIS Software, Automated Lab Results, Pathology Reporting, Sample Tracking System, Lab Software Somalia',
+                EN: 'Laboratory Management System, LIS Software, Automated Lab Results, Pathology Reporting, Sample Tracking System, Lab Software Africa',
                 AR: 'نظام إدارة المختبرات, برنامج LIS, نتائج المختبر الآلية, تقارير علم الأمراض, نظام تتبع العينات, برنامج مختبرات طبية',
                 SO: 'Nidaamka Maamulka Shaybaarka, Software-ka LIS, Natiijooyinka Shaybaarka Tooska ah, Warbixinta Cudurada, Nidaamka Dabagalka Tijaabada'
             },
@@ -148,7 +148,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Patient Administration Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Patient Administration, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Patient Administration, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Patient Administration, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-patient-admin.png'
@@ -163,7 +163,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Opd Consultations Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Opd Consultations, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Opd Consultations, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Opd Consultations, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-opd.png'
@@ -178,7 +178,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Laboratory Integration Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Laboratory Integration, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Laboratory Integration, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Laboratory Integration, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-lab.png'
@@ -193,7 +193,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Radiology Imaging Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Radiology Imaging, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Radiology Imaging, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Radiology Imaging, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-radiology.png'
@@ -208,7 +208,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Ipd Nursing Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Ipd Nursing, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Ipd Nursing, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Ipd Nursing, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-ipd.png'
@@ -223,7 +223,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Pharmacy Management Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Pharmacy Management, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Pharmacy Management, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Pharmacy Management, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-pharmacy.png'
@@ -238,7 +238,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Surgery Ot Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Surgery Ot, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Surgery Ot, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Surgery Ot, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-surgery.png'
@@ -253,7 +253,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Inventory Stock Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Inventory Stock, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Inventory Stock, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Inventory Stock, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-inventory.png'
@@ -268,7 +268,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Billing Finance Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Billing Finance, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Billing Finance, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Billing Finance, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-billing.png'
@@ -283,7 +283,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Reports Analytics Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Reports Analytics, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Reports Analytics, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Reports Analytics, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-reports.png'
@@ -298,7 +298,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Emergency Triage Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Emergency Triage, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Emergency Triage, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Emergency Triage, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-er.png'
@@ -313,7 +313,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Blood Bank Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Blood Bank, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Blood Bank, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Blood Bank, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-bloodbank.png'
@@ -328,7 +328,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Human Resources Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Human Resources, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Human Resources, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Human Resources, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-hr.png'
@@ -343,7 +343,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Dental Department Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Dental Department, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Dental Department, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Dental Department, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-dental.png'
@@ -358,7 +358,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Maternity Obstetrics Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Maternity Obstetrics, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Maternity Obstetrics, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Maternity Obstetrics, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-maternity.png'
@@ -373,7 +373,7 @@ export const seoData = {
             },
             keywords: { 
                 EN: 'Mortuary Forensics Module, SEHTECH Module, Healthcare Software, Medical EMR, Hospital IT System, Digital Health',
-                AR: 'وحدة Mortuary Forensics, وحدة سيحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
+                AR: 'وحدة Mortuary Forensics, وحدة صحتك, برامج الرعاية الصحية, السجلات الطبية الإلكترونية, نظام تكنولوجيا المستشفيات, الصحة الرقمية',
                 SO: 'Qaybta Mortuary Forensics, Qaybta SEHTECH, Software-ka Caafimaadka, EMR Caafimaad, Nidaamka IT Isbitaalka, Caafimaadka Dhijitaalka ah'
             },
             previewImage: '/preview-images/preview-mod-mortuary.png'

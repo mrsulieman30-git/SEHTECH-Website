@@ -339,7 +339,7 @@ const translations = {
             quranSchool: 'Quran School Management System'
         },
         hero: {
-            badge: 'Enterprise Healthcare IT for Somalia',
+            badge: 'Enterprise Healthcare IT for Africa',
             title1: 'Powering Healthier',
             title2: 'Systems.',
             desc: 'Secure, offline-capable, and AI-integrated Hospital Management Systems built specifically for the resource-constrained, high-growth private health sector.',
@@ -348,7 +348,7 @@ const translations = {
         },
         about: {
             mission: 'Our Mission',
-            missionText: 'To digitize and optimize healthcare facility management across Somalia and East Africa — making healthcare smarter, safer, and more efficient.',
+            missionText: 'To digitize and optimize healthcare facility management across Africa — making healthcare smarter, safer, and more efficient.',
             vision: 'Our Vision',
             visionText: 'To become the leading healthcare IT platform in the Horn of Africa by 2030, with 500+ active facilities across Somalia, Sudan, Ethiopia, and Djibouti.',
             values: 'Our Core Values',
@@ -408,7 +408,7 @@ const translations = {
             ready: 'Ready to digitize your facility?',
             cta: 'Start a WhatsApp Conversation',
             rights: 'All rights reserved.',
-            tagline: 'Built with precision in Bosaso. Trusted across Somalia.',
+            tagline: 'Built with precision in Bosaso. Trusted across Africa.',
             quickLinks: 'Quick Links',
             contact: 'Contact Us',
             getInTouch: 'Get in Touch'
@@ -434,7 +434,7 @@ const translations = {
             quranSchool: 'نظام إدارة مدارس القرآن'
         },
         hero: {
-            badge: 'تكنولوجيا المعلومات الصحية للمؤسسات في الصومال',
+            badge: 'تكنولوجيا المعلومات الصحية للمؤسسات في أفريقيا',
             title1: 'تمكين أنظمة',
             title2: 'أكثر صحة.',
             desc: 'أنظمة إدارة المستشفيات آمنة، قادرة على العمل دون اتصال بالإنترنت، ومتكاملة مع الذكاء الاصطناعي، مصممة خصيصاً للقطاع الصحي الخاص المتنامي ذو الموارد المحدودة.',
@@ -443,7 +443,7 @@ const translations = {
         },
         about: {
             mission: 'رسالتنا',
-            missionText: 'رقمنة وتحسين إدارة المرافق الصحية في الصومال وشرق أفريقيا - لجعل الرعاية الصحية أذكى وأكثر أماناً وكفاءة.',
+            missionText: 'رقمنة وتحسين إدارة المرافق الصحية في أفريقيا - لجعل الرعاية الصحية أذكى وأكثر أماناً وكفاءة.',
             vision: 'رؤيتنا',
             visionText: 'أن نصبح المنصة الرائدة لتكنولوجيا المعلومات الصحية في القرن الأفريقي بحلول عام 2030، مع أكثر من 500 منشأة نشطة في الصومال والسودان وإثيوبيا وجيبوتي.',
             values: 'قيمنا الأساسية',
@@ -503,7 +503,7 @@ const translations = {
             ready: 'هل أنت مستعد لرقمنة منشأتك؟',
             cta: 'ابدأ محادثة واتساب',
             rights: 'جميع الحقوق محفوظة.',
-            tagline: 'صُنع بدقة في بوساسو. موثوق في جميع أنحاء الصومال.',
+            tagline: 'صُنع بدقة في بوساسو. موثوق في جميع أنحاء أفريقيا.',
             quickLinks: 'روابط سريعة',
             contact: 'اتصل بنا',
             getInTouch: 'تواصل معنا'
@@ -529,7 +529,7 @@ const translations = {
             quranSchool: 'Nidaamka Maamulka Dugsiyadda Qur\'aanka'
         },
         hero: {
-            badge: 'Tiknoolajiyadda Caafimaadka ee Soomaaliya',
+            badge: 'Tiknoolajiyadda Caafimaadka ee Afrika',
             title1: 'Kobcinta Nidaamyo',
             title2: 'Caafimaad qaba.',
             desc: 'Nidaamyada Maareynta Isbitaalka oo sugan, u shaqeeya khadka ka baxsan (offline), laguna daray AI, kuwaas oo si gaar ah loogu dhisay qaybta caafimaadka ee gaarka loo leeyahay ee kobcaya.',
@@ -538,7 +538,7 @@ const translations = {
         },
         about: {
             mission: 'Himilada',
-            missionText: 'In loo habeeyo oo loo aqoonsado maaraynta xarumaha daryeelka caafimaadka ee guud ahaan Soomaaliya iyo Bariga Afrika - si daryeelka caafimaadka loo dhigo mid ka caqli badan, ka badbaado badan, kana hufan.',
+            missionText: 'In loo habeeyo oo loo aqoonsado maaraynta xarumaha daryeelka caafimaadka ee guud ahaan Afrika - si daryeelka caafimaadka loo dhigo mid ka caqli badan, ka badbaado badan, kana hufan.',
             vision: 'Hiigsiga',
             visionText: 'In aan noqono hormuudka tiknoolajiyadda daryeelka caafimaadka ee geeska Afrika marka la gaaro 2030, annaga oo leh 500+ xarumo oo ka hawlgala Soomaaliya, Suudaan, Itoobiya, iyo Jabuuti.',
             values: 'Qiyamkayaga',
@@ -598,7 +598,7 @@ const translations = {
             ready: 'Ma u diyaar tahay inaad digitize garayso xaruntaada?',
             cta: 'Bilow Wadahadal WhatsApp',
             rights: 'Dhammaan xuquuqaha waa la dhowray.',
-            tagline: 'Lagu dhisay daacadnimo Boosaaso. Laguna ammaano Soomaaliya oo dhan.',
+            tagline: 'Lagu dhisay daacadnimo Boosaaso. Laguna ammaano Afrika oo dhan.',
             quickLinks: 'Xiriirro Degdeg ah',
             contact: 'Nala Soo Xiriir',
             getInTouch: 'Nala Soo Xiriir'
@@ -691,7 +691,7 @@ YOUR MISSION: Guide users naturally through a consultative sales process to clos
 ═══ CULTURAL INTELLIGENCE ═══
 Detect the user's cultural context from their language and adapt:
 
-**Somalia/East Africa (Somali speakers):**
+**Africa (Somali speakers):**
 - Use brotherhood language: "walaal", "saaxiib", community-oriented framing
 - Emphasize: OFFLINE capability (most critical), local Somali-language support, on-site training
 - Address trust: "We are based in Bosaso, founded by Somali medical professionals"
@@ -742,7 +742,7 @@ Naturally collect this information (don't ask all at once — weave into convers
 
 ═══ KEY SELLING POINTS (use context-appropriately) ═══
 • 16 integrated modules (Lab, Pharmacy, Radiology, Surgery, Emergency, Blood Bank, Maternity, Dental, HR, and more)
-• Works 100% OFFLINE — critical for Somalia & East Africa
+• Works 100% OFFLINE — critical for Africa
 • AI-powered clinical assistance (drug interactions, diagnosis support)
 • Trilingual: English, Arabic, Somali
 • Each facility gets their OWN isolated instance — no shared data
