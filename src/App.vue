@@ -167,12 +167,12 @@ const toggleDarkMode = () => {
 
 const logoSrc = computed(() => {
     if (isDarkMode.value) {
-        return '/src/assets/logo_dark.png';
+        return '/logo_dark.png';
     }
     if (!isScrolled.value && isHomePage.value) {
-        return '/src/assets/logo_dark.png';
+        return '/logo_dark.png';
     }
-    return '/src/assets/logo_light.png';
+    return '/logo_light.png';
 });
 
 // ─── Router ────────────────────────────────────────────────────────
@@ -822,7 +822,7 @@ Naturally collect this information (don't ask all at once — weave into convers
 
 <template>
     <div 
-        class="min-h-screen bg-slate-50 font-sans selection:bg-[#0D7377] selection:text-white overflow-x-hidden"
+        class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans selection:bg-[#0D7377] selection:text-white overflow-x-hidden transition-colors duration-300"
         :dir="isRtl ? 'rtl' : 'ltr'"
     >
         
@@ -831,7 +831,7 @@ Naturally collect this information (don't ask all at once — weave into convers
             class="fixed top-0 w-full z-50 transition-all duration-500"
             :class="[
                 isScrolled 
-                    ? (isHomePage ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 py-2' : 'bg-white/40 backdrop-blur-xl shadow-lg shadow-slate-200/20 py-2') 
+                    ? (isHomePage ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-2' : 'bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/20 py-2') 
                     : 'bg-transparent py-4'
             ]"
         >
@@ -847,14 +847,14 @@ Naturally collect this information (don't ask all at once — weave into convers
                     
                     <!-- Desktop Nav -->
                     <div class="hidden md:flex items-center" :class="isRtl ? 'space-x-reverse space-x-8' : 'space-x-8'">
-                        <a @click="goToSection('profile')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.profile }}</a>
+                        <a @click="goToSection('profile')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600 dark:text-gray-300' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.profile }}</a>
                         
                         <!-- Products Mega Dropdown -->
                         <div class="relative products-dropdown-container">
                             <button 
                                 @click.stop="isProductsOpen = !isProductsOpen"
                                 class="flex items-center gap-1.5 font-medium transition-colors duration-200 hover:text-[#0D7377]"
-                                :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'"
+                                :class="(isScrolled || !isHomePage) ? 'text-gray-600 dark:text-gray-300' : 'text-gray-200'"
                             >
                                 {{ t.nav.products }}
                                 <ChevronDownIcon class="w-4 h-4 transition-transform duration-300" :class="{'rotate-180': isProductsOpen}" />
@@ -869,7 +869,7 @@ Naturally collect this information (don't ask all at once — weave into convers
                                 leave-from-class="opacity-100 translate-y-0 scale-100"
                                 leave-to-class="opacity-0 translate-y-3 scale-95"
                             >
-                                <div v-if="isProductsOpen" class="absolute top-full mt-4 w-[520px] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-[60]" :class="isRtl ? 'right-0' : 'left-1/2 -translate-x-1/2'">
+                                <div v-if="isProductsOpen" class="absolute top-full mt-4 w-[520px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden z-[60]" :class="isRtl ? 'right-0' : 'left-1/2 -translate-x-1/2'">
                                     <!-- Header -->
                                     <div class="px-6 py-4 bg-gradient-to-r from-[#1A3C5E] to-[#0D7377]">
                                         <p class="text-white font-bold text-sm">SEHTECH Product Suite</p>
@@ -883,12 +883,12 @@ Naturally collect this information (don't ask all at once — weave into convers
                                             @click="!product.comingSoon ? navigateToProduct(product.slug) : null"
                                             :disabled="product.comingSoon"
                                             class="flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-start group"
-                                            :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 cursor-pointer'"
+                                            :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer'"
                                         >
                                             <span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform" :class="!product.comingSoon ? 'group-hover:scale-110' : ''" :style="`background: ${product.color}12;`"><component :is="product.icon" class="w-5 h-5" :style="`color: ${product.color};`" /></span>
                                             <div class="min-w-0 flex-grow">
                                                 <div class="flex items-center gap-1.5 justify-between">
-                                                    <p class="text-sm font-semibold text-gray-800 transition-colors truncate" :class="!product.comingSoon ? 'group-hover:text-[#0D7377]' : ''">{{ product.name }}</p>
+                                                    <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 transition-colors truncate" :class="!product.comingSoon ? 'group-hover:text-[#0D7377]' : ''">{{ product.name }}</p>
                                                     <span v-if="product.comingSoon" class="text-[8px] uppercase font-extrabold tracking-wider bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded border border-amber-500/30 shrink-0">
                                                         {{ currentLang === 'AR' ? 'قريباً' : (currentLang === 'SO' ? 'Soon' : 'Soon') }}
                                                     </span>
@@ -898,7 +898,7 @@ Naturally collect this information (don't ask all at once — weave into convers
                                         </button>
                                     </div>
                                     <!-- Footer -->
-                                    <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
+                                    <div class="px-6 py-3 bg-slate-50 dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
                                         <span class="text-xs text-gray-400">{{ products.length }} products available</span>
                                         <a @click="goToSection('system'); isProductsOpen = false" href="javascript:void(0)" class="text-xs font-semibold text-[#0D7377] hover:underline cursor-pointer">View All Specs →</a>
                                     </div>
@@ -906,14 +906,14 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </transition>
                         </div>
 
-                        <a @click="goToSection('system')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.system }}</a>
-                        <a @click="goToSection('faq')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.faq }}</a>
+                        <a @click="goToSection('system')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600 dark:text-gray-300' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.system }}</a>
+                        <a @click="goToSection('faq')" href="javascript:void(0)" :class="(isScrolled || !isHomePage) ? 'text-gray-600 dark:text-gray-300' : 'text-gray-200'" class="hover:text-[#0D7377] font-medium transition-colors duration-200 cursor-pointer">{{ t.nav.faq }}</a>
                         <!-- Lang Switcher Dropdown -->
                         <div class="relative group lang-dropdown-container">
                             <button 
                                 @click="isLangMenuOpen = !isLangMenuOpen"
                                 class="flex items-center gap-2 px-4 py-2 rounded-full transition-all border"
-                                :class="(isScrolled || !isHomePage) ? 'text-[#1A3C5E] border-gray-200 bg-white hover:bg-slate-50' : 'text-white border-white/10 bg-white/10 hover:bg-white/20'"
+                                :class="(isScrolled || !isHomePage) ? 'text-[#1A3C5E] dark:text-white border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800' : 'text-white border-white/10 bg-white/10 hover:bg-white/20'"
                             >
                                 <span class="fi w-5 h-4 rounded-sm" :class="activeLangData.flagClass"></span>
                                 <span class="text-sm font-bold">{{ activeLangData.code }}</span>
@@ -929,16 +929,16 @@ Naturally collect this information (don't ask all at once — weave into convers
                                 leave-from-class="opacity-100 translate-y-0"
                                 leave-to-class="opacity-0 translate-y-2"
                             >
-                                <div v-if="isLangMenuOpen" class="absolute top-full mt-2 right-0 w-40 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-[60]">
+                                <div v-if="isLangMenuOpen" class="absolute top-full mt-2 right-0 w-40 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden z-[60]">
                                     <button 
                                         v-for="lang in languages" 
                                         :key="lang.code"
                                         @click="toggleLang(lang.code); isLangMenuOpen = false"
-                                        class="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition text-start border-b border-slate-50 last:border-0"
-                                        :class="{'bg-[#0D7377]/5 text-[#0D7377]': currentLang === lang.code}"
+                                        class="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-start border-b border-slate-50 dark:border-slate-800 last:border-0"
+                                        :class="{'bg-[#0D7377]/5 dark:bg-[#0D7377]/10 text-[#0D7377]': currentLang === lang.code}"
                                     >
                                         <span class="fi w-5 h-4 rounded-sm" :class="lang.flagClass"></span>
-                                        <span class="text-sm font-semibold text-gray-700">{{ lang.name }}</span>
+                                        <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">{{ lang.name }}</span>
                                     </button>
                                 </div>
                             </transition>
@@ -979,10 +979,10 @@ Naturally collect this information (don't ask all at once — weave into convers
                 leave-from-class="opacity-100 translate-y-0"
                 leave-to-class="opacity-0 -translate-y-4"
             >
-                <div v-if="isMenuOpen" class="md:hidden bg-white border-b border-gray-100 shadow-xl max-h-[80vh] overflow-y-auto">
+                <div v-if="isMenuOpen" class="md:hidden bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800 shadow-xl max-h-[80vh] overflow-y-auto">
                     <div class="px-4 pt-2 pb-6 space-y-2">
                         <!-- Mobile Lang & Theme Switcher -->
-                        <div class="flex items-center justify-between py-4 border-b border-slate-100 mb-2 px-2">
+                        <div class="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800 mb-2 px-2">
                             <div class="flex gap-6">
                                 <button @click="toggleLang('EN')" class="text-sm font-bold" :class="currentLang === 'EN' ? 'text-[#0D7377]' : 'text-gray-400'">EN</button>
                                 <button @click="toggleLang('AR')" class="text-sm font-bold" :class="currentLang === 'AR' ? 'text-[#0D7377]' : 'text-gray-400'">AR</button>
@@ -990,20 +990,20 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </div>
                             <button 
                                 @click="toggleDarkMode"
-                                class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 text-gray-600 bg-white shadow-sm"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 shadow-sm"
                             >
                                 <SunIcon v-if="isDarkMode" class="w-4 h-4 text-amber-500" />
                                 <MoonIcon v-else class="w-4 h-4" />
                                 <span class="text-xs font-semibold">{{ isDarkMode ? 'Light' : 'Dark' }}</span>
                             </button>
                         </div>
-                        <a @click="goToSection('profile')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 hover:bg-slate-50 rounded-lg text-start cursor-pointer">{{ t.nav.profile }}</a>
+                        <a @click="goToSection('profile')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-start cursor-pointer">{{ t.nav.profile }}</a>
                         
                         <!-- Mobile Products Accordion -->
                         <div>
                             <button 
                                 @click="isMobileProductsOpen = !isMobileProductsOpen" 
-                                class="w-full flex justify-between items-center px-3 py-4 text-base font-semibold text-gray-700 hover:bg-slate-50 rounded-lg text-start"
+                                class="w-full flex justify-between items-center px-3 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-start"
                             >
                                 {{ t.nav.products }}
                                 <ChevronDownIcon class="w-5 h-5 text-gray-400 transition-transform duration-300" :class="{'rotate-180': isMobileProductsOpen}" />
@@ -1023,10 +1023,10 @@ Naturally collect this information (don't ask all at once — weave into convers
                                         @click="!product.comingSoon ? navigateToProduct(product.slug) : null"
                                         :disabled="product.comingSoon"
                                         class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition text-start"
-                                        :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 cursor-pointer'"
+                                        :class="product.comingSoon ? 'opacity-40 cursor-default select-none' : 'hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer'"
                                     >
                                         <span class="w-7 h-7 rounded-md flex items-center justify-center shrink-0" :style="`background: ${product.color}12;`"><component :is="product.icon" class="w-4 h-4" :style="`color: ${product.color};`" /></span>
-                                        <span class="text-sm font-medium text-gray-600 flex-grow flex items-center justify-between">
+                                        <span class="text-sm font-medium text-gray-600 dark:text-gray-300 flex-grow flex items-center justify-between">
                                             <span>{{ product.name }}</span>
                                             <span v-if="product.comingSoon" class="text-[8px] uppercase font-extrabold tracking-wider bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded border border-amber-500/30 shrink-0">
                                                 {{ currentLang === 'AR' ? 'قريباً' : (currentLang === 'SO' ? 'Soon' : 'Soon') }}
@@ -1037,8 +1037,8 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </transition>
                         </div>
 
-                        <a @click="goToSection('system')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 hover:bg-slate-50 rounded-lg text-start cursor-pointer">{{ t.nav.system }}</a>
-                        <a @click="goToSection('faq')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 hover:bg-slate-50 rounded-lg text-start cursor-pointer">{{ t.nav.faq }}</a>
+                        <a @click="goToSection('system')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-start cursor-pointer">{{ t.nav.system }}</a>
+                        <a @click="goToSection('faq')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-start cursor-pointer">{{ t.nav.faq }}</a>
                         <a href="https://wa.me/252905243072" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-gradient-to-r from-[#1A3C5E] to-[#0D7377] text-white py-4 rounded-lg font-bold mt-4">{{ t.nav.request }}</a>
                     </div>
                 </div>
@@ -1111,7 +1111,7 @@ Naturally collect this information (don't ask all at once — weave into convers
         </section>
 
         <!-- ═══════════════ COMPANY PROFILE ═══════════════ -->
-        <section id="profile" class="py-24 bg-white">
+        <section id="profile" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div class="text-start reveal-on-scroll">
@@ -1119,9 +1119,9 @@ Naturally collect this information (don't ask all at once — weave into convers
                             <div class="w-12 h-1 bg-gradient-to-r from-[#0D7377] to-[#E8A020] rounded-full"></div>
                             <h2 class="text-[#0D7377] font-bold tracking-wide uppercase text-sm">{{ t.about.profile }}</h2>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-extrabold text-[#1A3C5E] mb-6 leading-tight">{{ t.about.profileTitle }}</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">{{ t.about.profileDesc1 }}</p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">{{ t.about.profileDesc2 }}</p>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-[#1A3C5E] dark:text-white mb-6 leading-tight">{{ t.about.profileTitle }}</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{{ t.about.profileDesc1 }}</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{{ t.about.profileDesc2 }}</p>
                         
                         <div class="grid grid-cols-2 gap-6 mt-8">
                             <div class="ps-4 group" :class="isRtl ? 'border-r-4 border-[#0D7377]' : 'border-l-4 border-[#0D7377]'">
@@ -1130,19 +1130,19 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </div>
                             <div class="ps-4 group" :class="isRtl ? 'border-r-4 border-[#E8A020]' : 'border-l-4 border-[#E8A020]'">
                                 <p class="text-3xl font-extrabold text-[#E8A020] group-hover:scale-105 transition-transform origin-left">{{ t.about.statTrilingual }}</p>
-                                <p class="text-sm text-gray-500 uppercase font-semibold mt-1">EN / SO / AR</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 uppercase font-semibold mt-1">EN / SO / AR</p>
                             </div>
                         </div>
                     </div>
-                    <div class="reveal-on-scroll bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 border border-slate-200 shadow-xl shadow-slate-200/50 text-start" style="transition-delay: 150ms">
+                    <div class="reveal-on-scroll bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/50 dark:shadow-none text-start" style="transition-delay: 150ms">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-[#0D7377]/10 rounded-xl flex items-center justify-center">
                                 <ShieldCheckIcon class="w-7 h-7 text-[#0D7377]" />
                             </div>
-                            <h4 class="text-xl font-bold text-[#1A3C5E]">{{ t.about.philosophy }}</h4>
+                            <h4 class="text-xl font-bold text-[#1A3C5E] dark:text-white">{{ t.about.philosophy }}</h4>
                         </div>
-                        <p class="text-gray-700 italic mb-6 border-s-4 border-[#0D7377]/20 ps-4 py-2">"{{ t.about.quote }}"</p>
-                        <ul class="space-y-4 text-sm text-gray-600 font-medium">
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-6 border-s-4 border-[#0D7377]/20 ps-4 py-2">"{{ t.about.quote }}"</p>
+                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 font-medium">
                             <li class="flex items-center gap-3 group">
                                 <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center shrink-0 group-hover:bg-green-200 transition">
                                     <CheckCircleIcon class="w-4 h-4 text-green-600"/>
@@ -1168,7 +1168,7 @@ Naturally collect this information (don't ask all at once — weave into convers
         </section>
 
         <!-- ═══════════════ TECHNICAL SPECS ═══════════════ -->
-        <section id="system" class="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+        <section id="system" class="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-300">
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
                 <img src="/src/assets/tech_bg.png" alt="Tech background" class="w-full h-full object-cover grayscale">
             </div>
@@ -1180,21 +1180,21 @@ Naturally collect this information (don't ask all at once — weave into convers
                         <h2 class="text-[#0D7377] font-bold tracking-wide uppercase text-sm">{{ t.specs.title }}</h2>
                         <div class="w-12 h-1 bg-gradient-to-l from-transparent to-[#0D7377] rounded-full"></div>
                     </div>
-                    <p class="mt-2 text-3xl md:text-5xl font-extrabold text-[#1A3C5E]">{{ t.specs.subtitle }}</p>
+                    <p class="mt-2 text-3xl md:text-5xl font-extrabold text-[#1A3C5E] dark:text-white">{{ t.specs.subtitle }}</p>
                 </div>
 
                 <!-- Tech Stack Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                     <div v-for="(spec, idx) in t.specs.items" :key="spec.title" 
-                         class="reveal-on-scroll bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-start relative overflow-hidden"
+                         class="reveal-on-scroll bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-800 group hover:shadow-xl dark:hover:shadow-slate-800/50 hover:-translate-y-2 transition-all duration-500 text-start relative overflow-hidden"
                          :style="`transition-delay: ${idx * 80}ms`">
                         <!-- Hover gradient accent -->
                         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0D7377] to-[#E8A020] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="w-14 h-14 bg-gradient-to-br from-[#E8A020]/10 to-[#E8A020]/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <component :is="spec.icon" class="w-8 h-8 text-[#E8A020]" />
                         </div>
-                        <h4 class="font-bold text-xl text-[#1A3C5E] mb-3">{{ spec.title }}</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">{{ spec.text }}</p>
+                        <h4 class="font-bold text-xl text-[#1A3C5E] dark:text-white mb-3">{{ spec.title }}</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{{ spec.text }}</p>
                     </div>
                 </div>
 
@@ -1268,9 +1268,9 @@ Naturally collect this information (don't ask all at once — weave into convers
                         </button>
                         <div 
                             v-show="activeFaq === index" 
-                            class="px-6 pb-6 bg-white text-gray-700 leading-relaxed text-start border-t border-slate-100"
+                            class="px-6 pb-6 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300 leading-relaxed text-start border-t border-slate-100 dark:border-slate-850"
                         >
-                            <p class="pt-4 text-base text-gray-600">{{ faq.answer }}</p>
+                            <p class="pt-4 text-base text-gray-600 dark:text-gray-300">{{ faq.answer }}</p>
                         </div>
                     </div>
                 </div>
@@ -1306,7 +1306,7 @@ Naturally collect this information (don't ask all at once — weave into convers
                     <!-- Brand -->
                     <div class="text-start">
                         <div class="flex items-center gap-3 mb-4">
-                            <img src="/src/assets/logo_dark.png" alt="SEHTECH" class="h-9 w-auto opacity-95">
+                            <img src="/logo_dark.png" alt="SEHTECH" class="h-9 w-auto opacity-95">
                         </div>
                         <p class="text-slate-400 text-sm leading-relaxed">{{ t.about.missionText }}</p>
                     </div>
