@@ -13,6 +13,7 @@ import {
     Bars3Icon,
     XMarkIcon,
     SunIcon,
+    MoonIcon,
     PencilSquareIcon,
     ArchiveBoxIcon,
     ChatBubbleBottomCenterTextIcon,
@@ -150,6 +151,30 @@ const currentLang = ref(localStorage.getItem('sehtech_lang') || 'EN');
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
 
+// ─── Dark Mode Configuration ───────────────────────────────────────
+const isDarkMode = ref(false);
+
+const toggleDarkMode = () => {
+    isDarkMode.value = !isDarkMode.value;
+    if (isDarkMode.value) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    }
+};
+
+const logoSrc = computed(() => {
+    if (isDarkMode.value) {
+        return '/src/assets/logo_dark.png';
+    }
+    if (!isScrolled.value && isHomePage.value) {
+        return '/src/assets/logo_dark.png';
+    }
+    return '/src/assets/logo_light.png';
+});
+
 // ─── Router ────────────────────────────────────────────────────────
 const router = useRouter();
 const route = useRoute();
@@ -222,15 +247,40 @@ const toggleFaq = (index) => {
 
 const isRtl = computed(() => currentLang.value === 'AR');
 
+// Sync query parameter 'lang' to currentLang
+watch(() => route.query.lang, (newLang) => {
+    if (newLang && ['EN', 'AR', 'SO'].includes(newLang.toString().toUpperCase())) {
+        const normalized = newLang.toString().toUpperCase();
+        if (currentLang.value !== normalized) {
+            currentLang.value = normalized;
+        }
+    }
+}, { immediate: true });
+
+// Sync currentLang to localStorage, meta tags, and URL query parameter
 watch(currentLang, (val) => {
     localStorage.setItem('sehtech_lang', val);
     updateMetaTags(route, val);
+    if (route.query.lang !== val) {
+        router.replace({ query: { ...route.query, lang: val } });
+    }
 });
 
 // ─── Scroll-Reveal Intersection Observer ───────────────────────────
 let observer = null;
 
 onMounted(() => {
+    // Initialize Dark Mode theme from storage or system settings
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        isDarkMode.value = true;
+        document.documentElement.classList.add('dark');
+    } else {
+        isDarkMode.value = false;
+        document.documentElement.classList.remove('dark');
+    }
+
     window.addEventListener('scroll', () => {
         isScrolled.value = window.scrollY > 20;
     });
@@ -787,16 +837,12 @@ Naturally collect this information (don't ask all at once — weave into convers
         >
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20 items-center">
-                    <router-link to="/" class="flex items-center gap-4 cursor-pointer">
+                    <router-link to="/" class="flex items-center cursor-pointer">
                         <img 
-                            src="/src/assets/logo_icon.png" 
-                            alt="SEHTECH Logo" 
-                            class="h-12 w-auto transition-all duration-300" 
-                            :class="(isScrolled || !isHomePage) ? '' : 'brightness-0 invert opacity-90'"
+                            :src="logoSrc" 
+                            alt="SEHTECH" 
+                            class="h-10 w-auto transition-all duration-300"
                         >
-                        <span class="font-bold text-3xl tracking-wider" :class="(isScrolled || !isHomePage) ? 'text-[#1A3C5E]' : 'text-white'">
-                            SEH<span class="text-[#0D7377]">TECH</span>
-                        </span>
                     </router-link>
                     
                     <!-- Desktop Nav -->
@@ -898,6 +944,17 @@ Naturally collect this information (don't ask all at once — weave into convers
                             </transition>
                         </div>
 
+                        <!-- Theme Switcher -->
+                        <button 
+                            @click="toggleDarkMode"
+                            class="flex items-center justify-center p-2.5 rounded-full transition-all border cursor-pointer shrink-0"
+                            :class="(isScrolled || !isHomePage) ? 'text-gray-600 border-gray-200 bg-white hover:bg-slate-50' : 'text-white border-white/10 bg-white/10 hover:bg-white/20'"
+                            aria-label="Toggle Theme"
+                        >
+                            <SunIcon v-if="isDarkMode" class="w-5 h-5 text-amber-400" />
+                            <MoonIcon v-else class="w-5 h-5" />
+                        </button>
+
                         <a href="https://wa.me/252905243072" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-[#1A3C5E] to-[#0D7377] hover:opacity-90 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-[#1A3C5E]/20 hover:shadow-xl hover:shadow-[#1A3C5E]/30 hover:-translate-y-0.5">
                             {{ t.nav.request }}
                         </a>
@@ -924,11 +981,21 @@ Naturally collect this information (don't ask all at once — weave into convers
             >
                 <div v-if="isMenuOpen" class="md:hidden bg-white border-b border-gray-100 shadow-xl max-h-[80vh] overflow-y-auto">
                     <div class="px-4 pt-2 pb-6 space-y-2">
-                        <!-- Mobile Lang Switcher -->
-                        <div class="flex justify-center gap-6 py-4 border-b border-slate-100 mb-2">
-                            <button @click="toggleLang('EN')" class="text-sm font-bold" :class="currentLang === 'EN' ? 'text-[#0D7377]' : 'text-gray-400'">EN</button>
-                            <button @click="toggleLang('AR')" class="text-sm font-bold" :class="currentLang === 'AR' ? 'text-[#0D7377]' : 'text-gray-400'">AR</button>
-                            <button @click="toggleLang('SO')" class="text-sm font-bold" :class="currentLang === 'SO' ? 'text-[#0D7377]' : 'text-gray-400'">SO</button>
+                        <!-- Mobile Lang & Theme Switcher -->
+                        <div class="flex items-center justify-between py-4 border-b border-slate-100 mb-2 px-2">
+                            <div class="flex gap-6">
+                                <button @click="toggleLang('EN')" class="text-sm font-bold" :class="currentLang === 'EN' ? 'text-[#0D7377]' : 'text-gray-400'">EN</button>
+                                <button @click="toggleLang('AR')" class="text-sm font-bold" :class="currentLang === 'AR' ? 'text-[#0D7377]' : 'text-gray-400'">AR</button>
+                                <button @click="toggleLang('SO')" class="text-sm font-bold" :class="currentLang === 'SO' ? 'text-[#0D7377]' : 'text-gray-400'">SO</button>
+                            </div>
+                            <button 
+                                @click="toggleDarkMode"
+                                class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 text-gray-600 bg-white shadow-sm"
+                            >
+                                <SunIcon v-if="isDarkMode" class="w-4 h-4 text-amber-500" />
+                                <MoonIcon v-else class="w-4 h-4" />
+                                <span class="text-xs font-semibold">{{ isDarkMode ? 'Light' : 'Dark' }}</span>
+                            </button>
                         </div>
                         <a @click="goToSection('profile')" href="javascript:void(0)" class="block px-3 py-4 text-base font-semibold text-gray-700 hover:bg-slate-50 rounded-lg text-start cursor-pointer">{{ t.nav.profile }}</a>
                         
@@ -1239,8 +1306,7 @@ Naturally collect this information (don't ask all at once — weave into convers
                     <!-- Brand -->
                     <div class="text-start">
                         <div class="flex items-center gap-3 mb-4">
-                            <img src="/src/assets/logo_icon.png" alt="SEHTECH" class="h-10 w-auto brightness-0 invert opacity-80">
-                            <span class="font-bold text-2xl text-white">SEH<span class="text-[#0D7377]">TECH</span></span>
+                            <img src="/src/assets/logo_dark.png" alt="SEHTECH" class="h-9 w-auto opacity-95">
                         </div>
                         <p class="text-slate-400 text-sm leading-relaxed">{{ t.about.missionText }}</p>
                     </div>
