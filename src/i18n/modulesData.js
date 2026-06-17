@@ -258,7 +258,8 @@ export const modulesData = {
             { filename: 'bloodbank-dashboard.png', title: { EN: 'Dashboard', AR: 'لوحة التحكم', SO: 'Dashboard' }, desc: { EN: 'Inventory levels.', AR: 'مستويات المخزون.', SO: 'Heerarka kaydka.' } },
             { filename: 'bloodbank-donor.png', title: { EN: 'Donor Form', AR: 'نموذج المتبرع', SO: 'Foomka Deeq-bixiyaha' }, desc: { EN: 'Questionnaire & vitals.', AR: 'الاستبيان والعلامات.', SO: 'Su\'aalaha & xogta.' } },
             { filename: 'bloodbank-inventory.png', title: { EN: 'Inventory', AR: 'المخزون', SO: 'Kaydka' }, desc: { EN: 'Blood bag tracking.', AR: 'تتبع أكياس الدم.', SO: 'Dabagalka bacda dhiigga.' } },
-            { filename: 'bloodbank-crossmatch.png', title: { EN: 'Crossmatch', AR: 'التوافق', SO: 'Is-waafajin' }, desc: { EN: 'Compatibility testing.', AR: 'اختبار التوافق.', SO: 'Tijaabada waafaqsanaanta.' } }
+            { filename: 'bloodbank-crossmatch.png', title: { EN: 'Crossmatch', AR: 'التوافق', SO: 'Is-waafajin' }, desc: { EN: 'Compatibility testing.', AR: 'اختبار التوافق.', SO: 'Tijaabada waafaqsanaanta.' } },
+            { filename: 'bloodbank-sticker.png', title: { EN: 'Sticker Print', AR: 'طباعة الملصق', SO: 'Daabacaadda Istaarada' }, desc: { EN: 'Transfusion cross-match tag.', AR: 'ملصق توافق نقل الدم.', SO: 'Calaamadda is-waafajinta shubista.' } }
         ]
     },
     'human-resources': {
