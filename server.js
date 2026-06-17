@@ -129,7 +129,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
 app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
 
 // ─── Serve dynamic HTML for SPA routes with SEO ──────────────────────
-app.get('*', (req, res, next) => {
+app.get('*all', (req, res, next) => {
     // If the request looks like a file (contains an extension), skip to 404
     if (req.path.includes('.') && !req.path.endsWith('.html')) {
         return next();
