@@ -161,7 +161,8 @@ app.get('*all', (req, res, next) => {
     const title = `${titleVal} | SEHTECH Solutions`;
     const imagePath = meta.previewImage || '/preview-images/preview-home.png';
     const host = req.get('host') || 'seeha.tech';
-    const protocol = req.secure || req.headers['x-forwarded-proto'] === 'https' ? 'https' : 'http';
+    const isLocal = host.includes('localhost') || host.includes('127.0.0.1') || host.includes('3001');
+    const protocol = isLocal ? 'http' : 'https';
     const origin = `${protocol}://${host}`;
     const image = `${origin}${imagePath}`;
     const url = `${origin}${req.originalUrl}`;
